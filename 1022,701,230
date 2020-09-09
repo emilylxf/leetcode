@@ -1,0 +1,15 @@
+1022. Sum of Root To Leaf Binary Numbers - e	
+701. Insert into a Binary Search Tree - m	
+230. Kth Smallest Element in a BST - m
+
+def kthSmallest(root: TreeNode, k: int) -> int:
+  stack = []
+  while root or stack:
+    while root:
+      stack.append(root)
+      root = root.left
+    node = stack.pop()
+    k -= 1
+    if k == 0:
+      return node.val
+    root = node.right
